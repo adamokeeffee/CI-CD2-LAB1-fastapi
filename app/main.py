@@ -20,3 +20,20 @@ def add_user(new_user:UserCreate):
             raise HTTPException(status_code=status.HTTP_409_CONFLICT,detail="This user already exists")
     users.append(new_user)
     return new_user
+
+@app.get("/api/users")
+def get_users():
+    return users
+
+@app.get("/api/users/{user-id}")
+def get_user(user_id: int):
+    for exsiting_user in users:
+        if exsiting_user.user_id == user_id:
+            return exsiting_user
+
+
+
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail="User not found",
+    )        
