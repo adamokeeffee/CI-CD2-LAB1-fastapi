@@ -14,12 +14,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: setup python
-        uses: ations/setup-python@v5
+        uses: actions/setup-python@v5
         with:
            python-version: "3.11"
 
       - name: run requirments
-        run: pip intall -r requirments
+        run: pip intall -r requirments.txt
 
 
       - name: run tests and coverage
