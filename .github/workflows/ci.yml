@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: check out repo
-        uses: actions/checkoutv4
+        uses: actions/checkout@v4
 
       - name: setup python
-        uses: ations/setup-pythonv5
+        uses: ations/setup-python@v5
         with:
            python-version: "3.11"
 
