@@ -10,7 +10,7 @@ def user_payload(uid=1, name="adam", email="adam@atu.ie", age=21, student_id="S1
 
 
 def test_create_user_returns_201(client):
-    responce = client.post("/api/users", json=)
+    responce = client.post("/api/users", json=user_payload)
 
     assert responce.status_code == 201
     data = responce.json()
