@@ -25,7 +25,7 @@ def add_user(new_user:UserCreate):
 def get_users():
     return users
 
-@app.get("/api/users/{user-id}")
+@app.get("/api/users/{user_id}")
 def get_user(user_id: int):
     for exsiting_user in users:
         if exsiting_user.user_id == user_id:
