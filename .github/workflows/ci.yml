@@ -1,0 +1,28 @@
+name: CI
+
+on:
+   push:
+   pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: check out repo
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+           python-version: "3.11"
+
+      - name: run requirments
+        run: pip install -r requirements.txt
+
+
+      - name: run tests and coverage
+        run: python -m pytest --cov=app --cov-report=term-missing
+
+
