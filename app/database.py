@@ -9,13 +9,13 @@ engine = create_engine(
 )
 
 SessionLocal = sessionmaker(
-    bind  =engine,
+    bind=engine,
     autoflush=False,
     expire_on_commit=False,
 )
 
 def get_db():
-    db =SessionLocal()
+    db = SessionLocal()
     try:
         yield db
     finally:
