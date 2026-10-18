@@ -25,11 +25,21 @@ def test_duplicate_user_id_returns_409(client):
     assert response.status_code == 409
     assert "exists" in response.json()["detail"].lower()
 
-@pytest.mark.parametrize("bad_student_id", ["123456", "s1234567", "S123", "S12345678"],)
+@pytest.mark.parametrize(
+      "bad_sid", 
+      ["BAD123", 
+       "s1234567",
+        "S123", 
+        "S12345678"
+        ],
+    )
 
-def test_bad_student_return_422(client, bad_student_id):
-    response = client.post("/api/users", json= user_payload(student_id=bad_student_id))
-    assert response.status_code == 422
+def test_invalid_student_id_returns_422(client, bad_sid):
+  response = client.post(
+  "/api/users",
+  json=user_payload(student_id=bad_sid),
+ )
+  assert response.status_code == 422
 
 def test_get_users(client):
  client.post("/api/users", json=user_payload())
