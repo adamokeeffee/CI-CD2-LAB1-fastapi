@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.pool import StaticPool
 
-TEST_DATABASE_URL = "sqlite+pyaqlite://"
+TEST_DATABASE_URL = "sqlite+pysqlite://"
 
 test_engine = create_engine(
     TEST_DATABASE_URL,
