@@ -19,11 +19,12 @@ def test_remote_product_success(client):
 
 
 def fake_product_missing(product_id: int):
-    request = httpx2.request(
+    request = httpx2.Request(
         "GET", f"http://example.test/products/{product_id}"
     )
-    response = httpx2.HTTPStatusError(
-        "Not found", request=request, responce=response
+    response = httpx2.Response(404, request=request)
+    raise httpx2.HTTPStatusError(
+        "Not found", request=request, response=response
     )
 
 def provide_missing_product():
