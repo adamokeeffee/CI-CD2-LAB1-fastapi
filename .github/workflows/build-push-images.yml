@@ -40,4 +40,4 @@ jobs:
           push: true
           tags: |
             ${{ env.IMAGE }}/user-service:latest
-            ${{ env.IMAGE }}/user-service:${{ gitub.sha }}
+            ${{ env.IMAGE }}/user-service:${{ gitub.adamokeeffee }}
