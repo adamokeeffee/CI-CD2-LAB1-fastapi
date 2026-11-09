@@ -23,7 +23,7 @@ jobs:
           python -m pytest
 
       - name: Set image name
-        run: echo "IMAGE=ghcr.io/${GITHUB_RESPOSITORY,,}" >> "$GITHUB_ENV"
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
 
       - name: Login to GHCR
         uses: docker/login-action@v3
